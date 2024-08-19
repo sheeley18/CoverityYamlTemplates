@@ -1,0 +1,11 @@
+analyze:
+  checkers:
+    all: false
+    audit: false
+    android-security: false
+    c-family-security: false
+    brakeman: false
+    default: false
+    webapp-security:
+      enabled: false
+  cov-analyze-args: [ --sigma-enable-check-set, default ]

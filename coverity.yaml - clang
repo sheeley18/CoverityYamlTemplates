@@ -1,0 +1,27 @@
+capture:
+  build:
+    clean-command: "clean"
+    build-command: "make"
+  compiler-configuration:
+    cov-configure:
+    - [ --template, --compiler, clang-cl, --comptype, clangclcc ]
+analyze:
+  c-cpp-fnptr: true
+  c-cpp-virtual: true
+  callgraph-metrics: true
+  constraint-fpp: true
+  checkers:
+    all: true
+    c-family-security: true
+    checker-config:
+      HARDCODED_CREDENTIALS:
+        enabled: true
+        options:
+          report_empty_credentials: "true"
+    concurrency: true
+    default: true
+
+
+
+
+    

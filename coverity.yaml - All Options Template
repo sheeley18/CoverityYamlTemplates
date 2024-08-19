@@ -1,0 +1,61 @@
+capture:
+  build:
+    clean-command: "make clean"
+    build-command: "make -j 10"
+  compiler-configuration:
+    cov-configure:
+    - [ --template, --compiler, cc, --comptype, gcc ]
+    - [ --template, --compiler, c++, --comptype, g++ ]
+ 
+capture:
+  files:
+ 
+    # Glob pattern that specifies the set of source files to exclude from
+    # capture. Note that any include glob patterns and regular expressions are
+    # processed prior to handling exclude glob patterns and regular
+    # expressions.
+    ##exclude-glob: <value>
+ 
+    # Regular expression that specifies the set of source files to exclude from
+    # capture. Note that any include glob patterns and regular expressions are
+    # processed prior to handling exclude glob patterns and regular
+    # expressions.
+    ##exclude-regex: <value>
+ 
+# Specifies how the project should be analyzed.
+analyze:
+  aggressiveness-level: "high"
+  trust:
+    all: false
+  checkers:
+    all: true
+    audit: true
+    android-security: true
+    c-family-security: true
+    webapp-security:
+      enabled: true 
+      aggressiveness-level: "high"
+ 
+ 
+# other useful options
+ 
+    brakeman: false
+    default: false
+ 
+    checker-config:
+      RISKY_CRYPTO:
+        enabled: true
+         
+  cov-analyze-args: [ --disable-webapp-security ]
+   
+--security is enabled only if analyze.checkers.c-family-security is configured to true
+ 
+For CodeXM custom checkers: you will need this in a coverity.yaml file:
+ 
+analyze:
+  checkers:
+    codexm:
+      - my-checker.cxm
+ 
+   
+See all coverity.yaml config file options: coverity help config --show-all

@@ -1,0 +1,14 @@
+analyze:
+  aggressiveness-level: "high"
+  trust:
+    all: false
+  checkers:
+    all: true
+    concurrency: true
+    audit: true
+    android-security: true
+    c-family-security: true
+    webapp-security:
+      enabled: true
+      aggressiveness-level: "high"
+  cov-analyze-args: [ --enable-audit-dataflow ]
