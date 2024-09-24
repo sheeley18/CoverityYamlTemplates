@@ -1,0 +1,28 @@
+capture:
+  build:
+    clean-command: "make clean"
+    build-command: "make"
+  compiler-configuration:
+    cov-configure:
+    - [--template, --compiler, iccarm, --comptype, iar:arm]
+analyze:
+  c-cpp-fnptr: true
+  checkers:
+    all: true
+    c-family-security: true
+    checker-config:
+      HARDCODED_CREDENTIALS:
+        enabled: true
+        options:
+          report_empty_credentials: "true"
+    concurrency: true
+    default: true
+    rule: true
+  constraint-fpp: true
+  parse-warnings:
+    enabled: true
+
+
+
+    
+    
