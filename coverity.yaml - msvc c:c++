@@ -1,6 +1,6 @@
 capture:
   build:
-    build-command: $build command
+    build-command: "msbuild project.sln /t:Build"
   compiler-configuration:
     cov-configure:
     - [ --msvc ]
